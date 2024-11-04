@@ -1,0 +1,18 @@
+<h2>Invoice Verifier</h2>
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<%= form_with url: verify_invoice_path, method: :post do |form| %>
+  <%= form.label :file, "Upload Invoice" %>
+  <%= form.file_field :file %><br>
+  <%= form.submit "Verify Invoice" %>
+<% end %>
