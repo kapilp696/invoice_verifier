@@ -69,7 +69,6 @@ group :test do
   gem 'webdrivers', '5.3.0'
 end
 
-gem 'rtesseract'
-gem 'mini_magick'
+gem 'google-cloud-document_ai'
 
 gem 'byebug'
