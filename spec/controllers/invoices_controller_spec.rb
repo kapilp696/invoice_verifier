@@ -14,22 +14,22 @@ RSpec.describe InvoicesController, type: :controller do
 
     it 'sets a flash notice if the invoice is genuine' do
       post :verify, params: { file: genuine_invoice_pdf }
-      expect(flash[:notice]).to eq("The invoice appears to be genuine.")
+      expect(flash[:notice]).to eq("Uploaded invoice is a hospital invoice.")
     end
 
     it 'sets a flash alert if the invoice is fake' do
       post :verify, params: { file: fake_invoice_pdf }
-      expect(flash[:alert]).to eq("Warning: The invoice may be fake.")
+      expect(flash[:alert]).to eq("Uploaded invoice is not a hospital invoice.")
     end
 
     it 'sets a flash notice if the image invoice is genuine' do
       post :verify, params: { file: genuine_invoice_image }
-      expect(flash[:notice]).to eq("The invoice appears to be genuine.")
+      expect(flash[:notice]).to eq("Uploaded invoice is a hospital invoice.")
     end
 
     it 'sets a flash alert if the image invoice is fake' do
       post :verify, params: { file: fake_invoice_image }
-      expect(flash[:alert]).to eq("Warning: The invoice may be fake.")
+      expect(flash[:alert]).to eq("Uploaded invoice is not a hospital invoice.")
     end
   end
 end
